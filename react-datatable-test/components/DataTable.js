@@ -5,14 +5,15 @@ export const DataTable = ({}) => {
   const columns = [
     { field: "id", headerName: "ID", width: 100 },
     {
-      field: "firstName",
-      headerName: "First name",
+      field: "isInProduction",
+      headerName: "IsIn Production",
       width: 100,
       editable: true,
+      sortable: true,
     },
     {
-      field: "lastName",
-      headerName: "Last name",
+      field: "brand",
+      headerName: "Car Brand",
       width: 100,
       editable: true,
     },
