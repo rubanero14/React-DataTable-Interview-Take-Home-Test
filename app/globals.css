@@ -8,13 +8,13 @@
 
 :root {
   --background-color: linear-gradient(305deg, rgb(134, 47, 134), #ccc);
-  --font-color: linear-gradient(270deg, rgb(134, 47, 134), #999);
+  --font-color: linear-gradient(270deg, rgb(134, 47, 134), #ddd);
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: linear-gradient(305deg, #333, #ccc);
-    --font-color: linear-gradient(305deg, #333, #999);
+    --font-color: linear-gradient(305deg, #111, #ddd);
   }
 }
 
@@ -43,4 +43,14 @@ h6 {
   background: var(--font-color);
   -webkit-background-clip: text;
   background-clip: text;
+}
+
+.MuiDataGrid-root.MuiDataGrid-root--densityStandard.MuiDataGrid-withBorderColor.css-kzyyzb-MuiDataGrid-root {
+  width: auto;
+}
+
+@media (min-width: 1200px) {
+  .MuiDataGrid-root.MuiDataGrid-root--densityStandard.MuiDataGrid-withBorderColor.css-kzyyzb-MuiDataGrid-root {
+    width: 65%;
+  }
 }

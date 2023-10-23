@@ -1,3 +1,4 @@
+// Mock data set for table
 export const carJson = [
   {
     id: "6531d10e5233915130deb0b7",
