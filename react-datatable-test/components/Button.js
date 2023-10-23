@@ -1,6 +1,6 @@
 import Link from "next/link";
 
-export const Button = ({ isLink, buttonText, href, buttonType, className }) => {
+const Button = ({ isLink, buttonText, href, buttonType, className }) => {
   return (
     <>
       {isLink && (
@@ -16,3 +16,5 @@ export const Button = ({ isLink, buttonText, href, buttonType, className }) => {
     </>
   );
 };
+
+export default Button;

@@ -1,39 +1,83 @@
-import { carJson } from "@/data/car";
-import autoprefixer from "autoprefixer";
+import { carJson } from "@/data/carJson";
+import { Box, Typography } from "@mui/material";
+import { DataGrid } from "@mui/x-data-grid";
+import { useMemo, useEffect, useState } from "react";
+import Divider from "@mui/material/Divider";
 
-export const DataTable = ({}) => {
-  const columns = [
-    { field: "id", headerName: "ID", width: 100 },
+const DataTable = () => {
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    setData(carJson);
+  }, []);
+
+  const columns = useMemo(() => [
+    { field: "id", headerName: "ID", width: 200 },
     {
       field: "isInProduction",
-      headerName: "IsIn Production",
-      width: 100,
+      headerName: "Is In Production",
+      width: 200,
+      type: "boolean",
       editable: true,
       sortable: true,
     },
     {
       field: "brand",
       headerName: "Car Brand",
-      width: 100,
+      width: 150,
       editable: true,
+      sortable: true,
     },
     {
-      field: "age",
-      headerName: "Age",
-      type: "number",
-      width: 100,
+      field: "model",
+      headerName: "Car Model",
+      width: 150,
       editable: true,
+      sortable: true,
     },
     {
-      field: "fullName",
-      headerName: "Full name",
-      description: "This column has a value getter and is not sortable.",
-      sortable: false,
-      width: 160,
-      valueGetter: (params) =>
-        `${params.row.firstName || ""} ${params.row.lastName || ""}`,
+      field: "color",
+      headerName: "Color",
+      width: 150,
+      editable: true,
+      sortable: true,
     },
-  ];
+    {
+      field: "createdAt",
+      headerName: "Created At",
+      width: 200,
+      editable: true,
+      sortable: true,
+    },
+  ]);
 
-  return <></>;
+  return (
+    <>
+      <Box
+        sx={{
+          height: "100%",
+          width: "100%",
+        }}
+      >
+        <Typography
+          variant="h2"
+          component="h2"
+          fontFamily="Roboto"
+          fontWeight="bold"
+          sx={{ textAlign: "center", my: 2 }}
+        >
+          Car Data
+        </Typography>
+        <Divider className="mb-5" />
+        <DataGrid
+          columns={columns}
+          rows={data}
+          getRowId={(row) => row.id}
+          scrollbarSize={3}
+          style={{ backgroundColor: "#eee", width: "auto" }}
+        />
+      </Box>
+    </>
+  );
 };
+
+export default DataTable;
