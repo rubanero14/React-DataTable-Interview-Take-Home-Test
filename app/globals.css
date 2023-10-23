@@ -8,13 +8,13 @@
 
 :root {
   --background-color: linear-gradient(305deg, rgb(134, 47, 134), #ccc);
-  --font-color: linear-gradient(270deg, rgb(134, 47, 134), #ccc);
+  --font-color: linear-gradient(270deg, rgb(134, 47, 134), #777);
 }
-  
+
 @media (prefers-color-scheme: dark) {
   :root {
     --background-color: linear-gradient(305deg, #333, #ccc);
-    --font-color: linear-gradient(270deg, #333, #ccc);
+    --font-color: linear-gradient(270deg, #222, #777);
   }
 }
 
