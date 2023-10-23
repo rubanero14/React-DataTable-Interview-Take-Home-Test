@@ -9,42 +9,41 @@ const DataTable = () => {
     setData(carJson);
   }, []);
 
+  // Table columns header and row xconfig
   const columns = [
-    { field: "id", headerName: "ID", width: 200 },
+    { field: "id", headerName: "ID", width: 200, filterable: false },
     {
       field: "isInProduction",
-      headerName: "Is In Production",
-      width: 200,
+      headerName: "Vehicle Is In Production",
+      width: 300,
       type: "boolean",
-      editable: true,
+      // editable: true,
       sortable: true,
     },
     {
       field: "brand",
-      headerName: "Car Brand",
+      headerName: "Vehicle Brand",
       width: 150,
-      editable: true,
       sortable: true,
     },
     {
       field: "model",
-      headerName: "Car Model",
+      headerName: "Vehicle Model",
       width: 150,
-      editable: true,
       sortable: true,
     },
     {
       field: "color",
-      headerName: "Color",
+      headerName: "Vehicle Color",
       width: 150,
-      editable: true,
       sortable: true,
     },
     {
       field: "createdAt",
       headerName: "Created At",
       width: 200,
-      editable: true,
+      filterable: false,
+      sortable: true,
     },
   ];
 
@@ -63,9 +62,9 @@ const DataTable = () => {
           fontWeight="bold"
           sx={{ textAlign: "center", my: 2 }}
         >
-          Car Data
+          Vehicle Order Details
         </Typography>
-        <Divider />
+        <Divider style={{ textAlign: "center" }} />
         <DataGrid
           columns={columns}
           rows={data}
