@@ -1,8 +1,7 @@
 import { carJson } from "@/data/carJson";
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, Divider } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { useMemo, useEffect, useState } from "react";
-import Divider from "@mui/material/Divider";
 
 const DataTable = () => {
   const [data, setData] = useState([]);
