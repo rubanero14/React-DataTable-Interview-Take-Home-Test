@@ -1,7 +1,7 @@
 import { carJson } from "@/data/carJson";
 import { Box, Typography, Divider } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
-import { useMemo, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 const DataTable = () => {
   const [data, setData] = useState([]);
@@ -9,7 +9,7 @@ const DataTable = () => {
     setData(carJson);
   }, []);
 
-  const columns = useMemo(() => [
+  const columns = [
     { field: "id", headerName: "ID", width: 200 },
     {
       field: "isInProduction",
@@ -47,7 +47,7 @@ const DataTable = () => {
       editable: true,
       sortable: true,
     },
-  ]);
+  ];
 
   return (
     <>
