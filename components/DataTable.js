@@ -66,7 +66,7 @@ const DataTable = () => {
         >
           Car Data
         </Typography>
-        <Divider className="mb-5" />
+        <Divider />
         <DataGrid
           columns={columns}
           rows={data}
