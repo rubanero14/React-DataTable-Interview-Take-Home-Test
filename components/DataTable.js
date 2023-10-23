@@ -45,7 +45,6 @@ const DataTable = () => {
       headerName: "Created At",
       width: 200,
       editable: true,
-      sortable: true,
     },
   ];
 
