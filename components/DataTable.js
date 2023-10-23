@@ -3,6 +3,8 @@ import { columns } from "@/data/tableColumns";
 import { Box, Typography, Divider } from "@mui/material";
 import { DataGrid } from "@mui/x-data-grid";
 import { useEffect, useState } from "react";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import Link from "next/link";
 
 const DataTable = () => {
   const [data, setData] = useState([]);
@@ -28,6 +30,15 @@ const DataTable = () => {
         >
           Vehicle Order Details
         </Typography>
+
+        <Link
+          href="https://github.com/rubanero14/React-DataTable-Interview-Take-Home-Test"
+          className="btn btn-secondary"
+          target="_blank"
+        >
+          Source Code <GitHubIcon />
+        </Link>
+
         <Divider style={{ textAlign: "center" }} />
         <DataGrid
           columns={columns}
