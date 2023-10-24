@@ -3,9 +3,9 @@ import { CircularProgress } from "@mui/material";
 
 const Loader = () => {
   return (
-    <>
-      <CircularProgress color="secondary" style={{ textAlign: "center" }} />
-    </>
+    <div className="text-center">
+      <CircularProgress disableShrink />
+    </div>
   );
 };
 
