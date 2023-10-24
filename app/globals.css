@@ -21,6 +21,7 @@
 body {
   color: var(--font-color);
   font-family: "Roboto";
+  font-weight: 700;
   background: var(--background-color);
   padding: 30px;
   padding-top: 50px;

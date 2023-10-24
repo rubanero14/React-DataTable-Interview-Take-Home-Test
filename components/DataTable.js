@@ -7,11 +7,64 @@ import GitHubIcon from "@mui/icons-material/GitHub";
 import Link from "next/link";
 
 const DataTable = () => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState(carJson);
 
+  // Rendering Table based on query params
+  const params = new URLSearchParams(window.location.search);
+  console.log(params);
+  const id = params.get("id");
+  const isInProduction = params.get("isInProduction");
+  const brand = params.get("brand");
+  const model = params.get("model");
+  const color = params.get("color");
+
+  // To get data using query param
   useEffect(() => {
-    setData(carJson);
-  }, []);
+    if (id) {
+      setData(carJson.filter((item) => item.id === id));
+    }
+
+    if (isInProduction) {
+      setData(carJson.filter((item) => item.isInProduction === isInProduction));
+    }
+
+    if (brand) {
+      setData(carJson.filter((item) => item.brand === brand));
+    }
+
+    if (model) {
+      setData(carJson.filter((item) => item.model === model));
+    }
+
+    if (color) {
+      setData(carJson.filter((item) => item.color === color));
+    }
+  }, [id, isInProduction, brand, model, color]);
+
+  // To set data using query param
+  useEffect(() => {
+    const url = new URL(window.location.origin);
+    const params = new URLSearchParams(url.search);
+    if (id) {
+      params.set("id", id);
+    }
+
+    if (isInProduction) {
+      params.set("isInProduction", isInProduction);
+    }
+
+    if (brand) {
+      params.set("brand", brand);
+    }
+
+    if (model) {
+      params.set("model", model);
+    }
+
+    if (color) {
+      params.set("color", color);
+    }
+  }, [id, isInProduction, brand, model, color]);
 
   return (
     <>
