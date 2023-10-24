@@ -1,5 +1,3 @@
-"use-client";
-
 import { carJson } from "@/data/carJson";
 import { columns } from "@/data/tableColumns";
 import { Box, Typography, Divider } from "@mui/material";
@@ -10,67 +8,40 @@ import Link from "next/link";
 
 const DataTable = () => {
   const [data, setData] = useState(carJson);
-  const [params, setParams] = useState("");
-  // Rendering Table based on query params
-  if (typeof window !== "undefined") {
-    // Your client-side code that uses window goes here
-    setParams(new URLSearchParams(window.location.search));
-  }
-
-  console.log(params);
-  const id = params.get("id") || "";
-  const isInProduction = params.get("isInProduction") || "";
-  const brand = params.get("brand") || "";
-  const model = params.get("model") || "";
-  const color = params.get("color") || "";
+  let params = "";
 
   // To get data using query param
   useEffect(() => {
-    // Your client-side code that uses window goes here
+    // Rendering Table based on query params
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+    params = new URLSearchParams(document.location.search);
+    console.log(params);
+    const id = params.get("id");
+    const isInProduction = params.get("isInProduction");
+    const brand = params.get("brand");
+    const model = params.get("model");
+    const color = params.get("color");
+
     if (id) {
-      setData(carJson.filter((item) => item.id === id));
+      setData(data.filter((item) => item.id === id));
     }
 
     if (isInProduction) {
-      setData(carJson.filter((item) => item.isInProduction === isInProduction));
+      setData(data.filter((item) => item.isInProduction === isInProduction));
     }
 
     if (brand) {
-      setData(carJson.filter((item) => item.brand === brand));
+      setData(data.filter((item) => item.brand === brand));
     }
 
     if (model) {
-      setData(carJson.filter((item) => item.model === model));
+      setData(data.filter((item) => item.model === model));
     }
 
     if (color) {
-      setData(carJson.filter((item) => item.color === color));
+      setData(data.filter((item) => item.color === color));
     }
-  }, [id, isInProduction, brand, model, color]);
-
-  // To set data using query param
-  useEffect(() => {
-    // Your client-side code that uses window goes here
-    if (id) {
-      params.set("id", id);
-    }
-
-    if (isInProduction) {
-      params.set("isInProduction", isInProduction);
-    }
-
-    if (brand) {
-      params.set("brand", brand);
-    }
-
-    if (model) {
-      params.set("model", model);
-    }
-
-    if (color) {
-      params.set("color", color);
-    }
-  }, [id, isInProduction, brand, model, color]);
+  }, []);
 
   return (
     <>
