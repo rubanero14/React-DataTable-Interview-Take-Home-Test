@@ -5,8 +5,7 @@ export const columns = [
     field: "isInProduction",
     headerName: "Vehicle Is In Production",
     width: 300,
-    type: "boolean",
-    // editable: true,
+    type: "string",
     sortable: true,
   },
   {
