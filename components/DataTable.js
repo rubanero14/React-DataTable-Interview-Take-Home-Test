@@ -10,9 +10,13 @@ import Link from "next/link";
 
 const DataTable = () => {
   const [data, setData] = useState(carJson);
-
+  const [params, setParams] = useState("");
   // Rendering Table based on query params
-  const params = new URLSearchParams(window.location.search);
+  if (typeof window !== "undefined") {
+    // Your client-side code that uses window goes here
+    setParams(new URLSearchParams(window.location.search));
+  }
+
   console.log(params);
   const id = params.get("id") || "";
   const isInProduction = params.get("isInProduction") || "";
@@ -46,29 +50,25 @@ const DataTable = () => {
 
   // To set data using query param
   useEffect(() => {
-    if (typeof window !== "undefined") {
-      // Your client-side code that uses window goes here
-      const params = new URLSearchParams(window.location.search);
-      console.log(params);
-      if (id) {
-        params.set("id", id);
-      }
+    // Your client-side code that uses window goes here
+    if (id) {
+      params.set("id", id);
+    }
 
-      if (isInProduction) {
-        params.set("isInProduction", isInProduction);
-      }
+    if (isInProduction) {
+      params.set("isInProduction", isInProduction);
+    }
 
-      if (brand) {
-        params.set("brand", brand);
-      }
+    if (brand) {
+      params.set("brand", brand);
+    }
 
-      if (model) {
-        params.set("model", model);
-      }
+    if (model) {
+      params.set("model", model);
+    }
 
-      if (color) {
-        params.set("color", color);
-      }
+    if (color) {
+      params.set("color", color);
     }
   }, [id, isInProduction, brand, model, color]);
 
